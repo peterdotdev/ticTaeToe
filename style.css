@@ -1,0 +1,74 @@
+body {
+  background-color: #000;
+  color: #FFF;
+}
+
+h1 {
+  font-size: 48px;
+}
+
+p {
+  font-size: 32px;
+  margin-top: 32px;
+  text-align: center;
+}
+
+a {
+  color: #FFF;
+  text-decoration: none;
+}
+
+.board {
+  -ms-flex-line-pack: justify;
+      align-content: space-between;
+  background-color: #000;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: 0 auto;
+  height: 320px;
+  width: 320px;
+}
+
+.square {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 32%;
+  width: 32%;
+}
+
+.square1, .square3, .square5, .square7, .square9 {
+  background-color: red;
+}
+
+.square2, .square4, .square6, .square8 {
+  background-color: blue;
+}
+
+.circle {
+  border: 8px solid #FFF;
+  border-radius: 50%;
+  height: 62px;
+  width: 62px;
+}
+
+.cross {
+  background-color: #FFF;
+  -webkit-clip-path: polygon(10% 0%, 50% 40%, 90% 0%, 100% 10%, 60% 50%, 100% 90%, 90% 100%, 50% 60%, 10% 100%, 0% 90%, 40% 50%, 0 10%);
+          clip-path: polygon(10% 0%, 50% 40%, 90% 0%, 100% 10%, 60% 50%, 100% 90%, 90% 100%, 50% 60%, 10% 100%, 0% 90%, 40% 50%, 0 10%);
+  height: 58px;
+  width: 58px;
+}
+/*# sourceMappingURL=style.css.map */
