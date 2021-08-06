@@ -1,5 +1,4 @@
 window.onload = () => {
-
     // Auxiliar function to compare arrays ********************************************************************************************************************
     // Warn if overriding existing method
     if(Array.prototype.equals)
@@ -39,6 +38,7 @@ window.onload = () => {
     const squares = document.querySelectorAll('.square');
     for (let square of squares) {
         square.addEventListener('click',addCircle);
+        square.addEventListener('click',playClickAudio);
         square.addEventListener('click',checkPlayerWin);
         square.addEventListener('click',checkDraw);
         square.addEventListener('click',CPUplay);
@@ -80,13 +80,21 @@ window.onload = () => {
         }
     }
 
+    function playClickAudio() {
+        const audio = new Audio('mouse-click.mp3');
+        audio.play();
+    }
+
     function checkPlayerWin() {
         if ((gameboard[0]+gameboard[1]+gameboard[2]===3) || (gameboard[3]+gameboard[4]+gameboard[5]===3) || (gameboard[6]+gameboard[7]+gameboard[8]===3) ||
             (gameboard[0]+gameboard[3]+gameboard[6]===3) || (gameboard[1]+gameboard[4]+gameboard[7]===3) || (gameboard[2]+gameboard[5]+gameboard[8]===3) ||
             (gameboard[0]+gameboard[4]+gameboard[8]===3) || (gameboard[2]+gameboard[4]+gameboard[6]===3)) {
             document.body.insertAdjacentHTML('beforeend','<p>YOU WIN!</p><p><a href=".">PLAY AGAIN?</a></p>');
+            const audio = new Audio('win-sound.mp3');
+            audio.play();
             for (let square of squares) {
                 square.removeEventListener('click',addCircle);
+                square.removeEventListener('click',playClickAudio);
                 square.removeEventListener('click',checkPlayerWin);
                 square.removeEventListener('click',checkPlayerLose);
                 square.removeEventListener('click',checkDraw);
@@ -99,8 +107,11 @@ window.onload = () => {
             (gameboard[0]+gameboard[3]+gameboard[6]===12) || (gameboard[1]+gameboard[4]+gameboard[7]===12) || (gameboard[2]+gameboard[5]+gameboard[8]===12) ||
             (gameboard[0]+gameboard[4]+gameboard[8]===12) || (gameboard[2]+gameboard[4]+gameboard[6]===12)) {
             document.body.insertAdjacentHTML('beforeend','<p>YOU LOSE!</p><p><a href=".">PLAY AGAIN?</a></p>');
+            const audio = new Audio('lose-sound.mp3');
+            audio.play();
             for (let square of squares) {
                 square.removeEventListener('click',addCircle);
+                square.removeEventListener('click',playClickAudio);
                 square.removeEventListener('click',checkPlayerWin);
                 square.removeEventListener('click',checkPlayerLose);
                 square.removeEventListener('click',checkDraw);
@@ -111,8 +122,11 @@ window.onload = () => {
     function checkDraw() {
         if (plays===9) {
             document.body.insertAdjacentHTML('beforeend',`<p>IT'S A DRAW!</p><p><a href=".">PLAY AGAIN?</a></p>`);
+            const audio = new Audio('draw-sound.mp3');
+            audio.play();
             for (let square of squares) {
                 square.removeEventListener('click',addCircle);
+                square.removeEventListener('click',playClickAudio);
                 square.removeEventListener('click',checkPlayerWin);
                 square.removeEventListener('click',checkPlayerLose);
                 square.removeEventListener('click',checkDraw);
